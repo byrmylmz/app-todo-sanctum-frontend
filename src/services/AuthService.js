@@ -29,33 +29,33 @@ authClient.interceptors.response.use(
 export default {
   async login(payload) {
     await authClient.get("/sanctum/csrf-cookie");
-    return authClient.post("/login", payload);
+    return authClient.post("/api/login", payload);
   },
   logout() {
-    return authClient.post("/logout");
+    return authClient.post("/api/logout");
   },
   async forgotPassword(payload) {
     await authClient.get("/sanctum/csrf-cookie");
-    return authClient.post("/forgot-password", payload);
+    return authClient.post("api/forgot-password", payload);
   },
   getAuthUser() {
     return authClient.get("/api/users/auth");
   },
   async resetPassword(payload) {
     await authClient.get("/sanctum/csrf-cookie");
-    return authClient.post("/reset-password", payload);
+    return authClient.post("/api/reset-password", payload);
   },
   updatePassword(payload) {
-    return authClient.put("/user/password", payload);
+    return authClient.put("/api/user/password", payload);
   },
   async registerUser(payload) {
     await authClient.get("/sanctum/csrf-cookie");
-    return authClient.post("/register", payload);
+    return authClient.post("/api/register", payload);
   },
   sendVerification(payload) {
-    return authClient.post("/email/verification-notification", payload);
+    return authClient.post("/api/email/verification-notification", payload);
   },
   updateUser(payload) {
-    return authClient.put("/user/profile-information", payload);
+    return authClient.put("/api/user/profile-information", payload);
   },
 };
